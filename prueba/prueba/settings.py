@@ -127,3 +127,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #archivos fotograficos
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+
+#ckeditor
+CKEDITOR_CONFIGS ={
+    "default":{ "toolbar": "Custom",
+    "toolbar_custom": [["Bold","Italic","Underline"],
+    ]
+    }
+}

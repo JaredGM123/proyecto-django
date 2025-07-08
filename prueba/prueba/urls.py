@@ -16,18 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from inicio import views
 from django.conf import settings
+from inicio import views as views_inicio
 from registros import views as views_registros
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views_registros.registros, name="Principal"),
-    path('contacto/', views.contacto, name="Contacto"),
-    path('formulario/', views.formulario, name="Formulario"),
-    path('ejemplo/', views.ejemplo, name="Ejemplo"),
-
+    path('contacto/', views_registros.contacto, name="Contacto"),
+    path('formulario/', views_inicio.formulario, name="Formulario"),
+    path('ejemplo/', views_inicio.ejemplo, name="Ejemplo"),
+    path('registrar/', views_registros.registrar, name="Registrar"),
+    path('consultar_comentarios/', views_registros.consultar_comentarios, name='consultar_comentarios'),
+    path('eliminarComentario/<int:id>/',views_registros.eliminarComentarioContacto,name='Eliminar'),
 ]
+
 
 if settings.DEBUG:
     from django.conf.urls.static import static

@@ -1,0 +1,71 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %}Contacto{% endblock %}
+
+{% block imagen %}
+	{% load static %}
+	{% static 'inicio/images/contacto.png' %}
+{% endblock %}
+
+{% block titulo_principal %}
+	Contacto <span> Soporte</span>
+{% endblock %}
+
+{% block contenido %}
+
+<!-- Encabezado -->
+<div class="page-header">
+	<div class="page-title">
+		<h3>Comentarios Registrados
+			<small>Consulta de mensajes enviados</small>
+		</h3>
+	</div>
+</div>
+
+{% block url %}
+<div class="breadcrumb-line">
+	<ul class="breadcrumb">
+		<a href="{% url 'consultar_comentarios' %}">
+			{% if request.path == '/' %}
+				Consulta
+			{% else %}
+				Consulta {{ request.path }}
+			{% endif %}
+		</a>
+	</ul>
+</div>
+{% endblock %}
+
+<!-- Contenido Principal -->
+<div class="panel panel-default">
+	<div class="panel-heading"><h5 class="panel-title">Listado de Comentarios</h5></div>
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Usuario</th>
+						<th>Mensaje</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+				    {% for comentario in comentarios %}
+				    <tr>
+				        <td>{{ comentario.usuario }}</td>
+				        <td>{{ comentario.mensaje }}</td>
+				        <td>Editar</td>
+						<td class="text-center">
+ 						<a href="{%url 'Eliminar' comentario.id%}">Eliminar</a>
+						</td>
+				    </tr>
+				    {% empty %}
+				    <tr><td colspan="4">No hay comentarios registrados.</td></tr>
+				    {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- /Contenido Principal -->
+
+{% endblock %}
