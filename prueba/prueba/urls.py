@@ -29,7 +29,24 @@ urlpatterns = [
     path('registrar/', views_registros.registrar, name="Registrar"),
     path('consultar_comentarios/', views_registros.consultar_comentarios, name='consultar_comentarios'),
     path('eliminarComentario/<int:id>/',views_registros.eliminarComentarioContacto,name='Eliminar'),
+    path('formEditarComentario/<int:id>/', views_registros.consultarComentarioIndividual, name='ConsultaIndividual'),
+    path('editarComentario/<int:id>/', views_registros.editarComentarioContacto, name='Editar'),
+    path('consultar1/', views_registros.consultar1, name="Consultas"),
+    path('consultar2/', views_registros.consultar2, name="Consultas"),
+    path('consultar3/', views_registros.consultar3, name="Consultas"),
+    path('consultar4/', views_registros.consultar4, name="Consultas"),
+    path('consultar6/', views_registros.consultar6, name="Consultas"),
+    path('consultar7/', views_registros.consultar7, name="Consultas"),
+    path('consultar8/', views_registros.consultar8, name="Consultas8"),
+    path('consultar9/', views_registros.consultar9, name="Consultas9"),
+    path('consultar10/', views_registros.consultar10, name="Consultas10"),
+    path('consultar11/', views_registros.consultar11, name="Consultas11"),
+    path('consultar12/', views_registros.consultar12, name="Consultas12"),
+    path('subir',views_registros.archivos,name="Subir"),
+    path('seguridad', views_registros.seguridad, name="Seguridad"),
 ]
+
+
 
 
 if settings.DEBUG:

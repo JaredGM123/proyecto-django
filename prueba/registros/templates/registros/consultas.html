@@ -1,0 +1,43 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %}Comentarios{% endblock %}
+
+{% block imagen %}
+    {% load static %}
+    {% static 'inicio/images/home.png' %}
+{% endblock %}
+
+{% block titulo_principal %}
+    Comentarios <span>Contacto</span>
+{% endblock %}
+
+{% block contenido %}
+<div class="page-header">
+    <div class="page-title">
+        <h3>Comentarios de Contacto
+        <small>Lista de comentarios registrados</small></h3>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Comentario</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for comentario in comentarios %}
+        <tr>
+            <td>{{ comentario.usuario }}</td>
+            <td>{{ comentario.mensaje }}</td>
+            <td>{{ comentario.created|date:"d/m/Y H:i" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No hay comentarios registrados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
